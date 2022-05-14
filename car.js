@@ -15,6 +15,11 @@ class Car{
   }
 
   update(){
+    this.#move();
+  }
+
+
+  #move(){
     if(this.controls.forward){
       this.speed += this.acceleration;
     }
@@ -41,6 +46,11 @@ class Car{
       this.speed = 0;
     }
 
+    /*
+     *in the reverse mode when you press left arrow the car should torn of left
+     *and the same when you press right arrow the car shoul turn right
+     *
+    */
     if(this.speed != 0){
       const flip = this.speed > 0 ? 1 : -1;
 
@@ -56,8 +66,8 @@ class Car{
 
     
     
-    this.xPosition -= Math.sin(this.angle)*this.speed;
-    this.yPosition -= Math.cos(this.angle)*this.speed;
+    this.xPosition -= Math.sin(this.angle) * this.speed;
+    this.yPosition -= Math.cos(this.angle) * this.speed;
   }
 
   draw(context){
