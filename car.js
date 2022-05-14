@@ -49,8 +49,9 @@ class Car{
     if(this.controls.right){
       this.angle -= 0.03;
     }
-
-    this.yPosition -= this.speed;
+    
+    this.xPosition -= Math.sin(this.angle)*this.speed;
+    this.yPosition -= Math.cos(this.angle)*this.speed;
   }
 
   draw(context){
