@@ -4,6 +4,17 @@ class Car{
     this.yPosition = yPosition;
     this.width = width;
     this.height = height;
+
+    this.controls = new Controls();
+  }
+
+  update(){
+    if(this.controls.forward){
+      this.yPosition-=2;
+    }
+    if(this.controls.reverse){
+      this.yPosition+=2;
+    }
   }
 
   draw(context){
