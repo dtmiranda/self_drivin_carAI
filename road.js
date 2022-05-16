@@ -1,5 +1,5 @@
 class Road{
-  constructor(xPosition, width, laneCount = 4){
+  constructor(xPosition, width, laneCount = 3){
     this.xPosition = xPosition;
     this.width = width;
     this.laneCount = laneCount;
@@ -15,7 +15,8 @@ class Road{
 
   getLaneCenter(laneIndex){
      const laneWidth = this.width / this.laneCount;
-     return this.left + laneWidth / 2 + laneIndex * laneWidth;
+     return this.left + laneWidth / 2 + 
+            Math.min(laneIndex, this.laneCount - 1) * laneWidth;
   }
 
 
