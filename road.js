@@ -19,15 +19,20 @@ class Road{
     context.lineWidth = 5;
     context.strokeStyle = "white";
 
-    context.beginPath();
-    context.moveTo(this.left, this.top);
-    context.lineTo(this.left, this.bottom);
-    context.stroke();
+    //linear interpolation used  to draw the road lines
+    for(let i = 0; i <= this.laneCount; i++){
+      const lineXPosition = lerp(
+        this.left,
+        this.right,
+        i/this.laneCount
+      );
 
-    context.beginPath();
-    context.moveTo(this.right, this.top);
-    context.lineTo(this.right, this.bottom);
-    context.stroke();
+      
 
+      context.beginPath();
+      context.moveTo(lineXPosition, this.top);
+      context.lineTo(lineXPosition, this.bottom);
+      context.stroke();
+    }
   }
 }
