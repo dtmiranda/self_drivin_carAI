@@ -12,8 +12,12 @@ animate();
 function animate(){
   car.update();
   canvas.height = window.innerHeight;
+  context.save();
+  context.translate(0, -car.yPosition + canvas.height * 0.7);
   road.draw(context);
   car.draw(context);
+
+  context.restore();
   
   /*
    *this will call animate method again and again many 
